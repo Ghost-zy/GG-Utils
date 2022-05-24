@@ -9,6 +9,11 @@
 ![visitors​​](https://visitor-badge.glitch.me/badge?page_id=Ghost-zy.GG-Utils&left_color=green&right_color=red)
 ## 历史更新
 
+### 3.1.0
+- 添加函数
+	+ `zy.gotoAddress`
+	+ `zy.getSegments`
+
 ### 3.0.0
 - `zy.editElement`改名为`zy.setElements`
 

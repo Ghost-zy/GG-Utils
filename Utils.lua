@@ -223,6 +223,49 @@ function zy.getDir(file)
 	return string.sub(file,1,zy.findLast(file,"/"))
 end
 
+function zy.getSegments(exp)
+	local maps=gg.getRangesList(exp)
+	local index=1
+	while index<=#maps do
+		if maps[index].type:sub(2,2)=="w"then
+			index=index+1
+		else
+			table.remove(maps,index)
+		end
+	end
+	return maps
+end
 
+function zy.gotoAddress(segment,...)
+	local x64=gg.getTargetInfo().x64
+	segment=zy.getSegments(segment)
+	local i=
+	{
+		[true]=gg.TYPE_QWORD,
+		[false]=gg.TYPE_DWORD
+	}
+	if#segment<=0 then
+		return 0
+	end
+	segment=segment[1]
+	segment=
+	{
+		address=segment.start,
+		flags=i[x64]
+	}
+	i=1
+	while i<=select("#",...)do
+		segment.address=segment.address+select(i,...)
+		segment=gg.getValues({segment})[1]
+		if segment.value==0 then
+			return 0
+		end
+		if not x64 then
+			segment.value=segment.value&0xFFFFFFFF
+		end
+		segment.address=segment.value
+	end
+	return segment.value
+end
 
 return zy

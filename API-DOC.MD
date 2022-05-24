@@ -15,6 +15,8 @@
 - ### [zy.setElements](#setElements)
 - ### [zy.escape](#escape)
 - ### [zy.getDir](#getDir)
+- ### [zy.getSegments](#getSegments)
+- ### [zy.gotoAddress](#gotoAddress)
 
 ## 函数介绍
 
@@ -231,4 +233,36 @@ E.g.
 介绍
 - 获取文件的绝对路径
 - 如果没有传参数,默认`gg.getFile()`
+
+----
+
+<div id="getSegments"/>
+
+原型：`table zy.getSegments(string exp)`
+
+介绍
+- 获取指定名字的可写段
+
+参数
+- exp - 表达式
+
+返回
+- 匹配的段数组
+
+----
+
+<div id="gotoAddress"/>
+
+原型：`number zy.gotoAddress(string segment,number ...)`
+
+介绍
+- 读取指针链，以获取地址
+
+参数
+- segment - 段名
+- [...] - 每个指针节点的偏移值
+
+返回
+- 最终地址
+- 如果读取失败,则返回`0`
 
