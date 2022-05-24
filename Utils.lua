@@ -254,7 +254,7 @@ function zy.gotoAddress(segment,...)
 		flags=i[x64]
 	}
 	i=1
-	while i<=select("#",...)do
+	while i<select("#",...)do
 		segment.address=segment.address+select(i,...)
 		segment=gg.getValues({segment})[1]
 		if segment.value==0 then
@@ -264,8 +264,9 @@ function zy.gotoAddress(segment,...)
 			segment.value=segment.value&0xFFFFFFFF
 		end
 		segment.address=segment.value
+		i=i+1
 	end
-	return segment.value
+	return segment.value+select(i,...)
 end
 
 return zy

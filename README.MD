@@ -9,6 +9,9 @@
 ![visitors​​](https://visitor-badge.glitch.me/badge?page_id=Ghost-zy.GG-Utils&left_color=green&right_color=red)
 ## 历史更新
 
+### 3.1.1
+- 修复`zy.gotoAddress`读取指针链永远为0
+
 ### 3.1.0
 - 添加函数
 	+ `zy.gotoAddress`
