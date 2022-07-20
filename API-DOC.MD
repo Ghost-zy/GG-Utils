@@ -11,10 +11,8 @@
 - ### [zy.search](#search)
 - ### [zy.offset](#offset)
 - ### [zy.filter](#filter)
-- ### [zy.findLast](#findLast)
 - ### [zy.setElements](#setElements)
 - ### [zy.escape](#escape)
-- ### [zy.getDir](#getDir)
 - ### [zy.getSegments](#getSegments)
 - ### [zy.gotoAddress](#gotoAddress)
 
@@ -186,16 +184,6 @@ E.g.
 
 ----
 
-<div id="findLast"/>
-
-原型：`mixed zy.findLast(string str,string flag)`
-
-介绍
-- 获取`flag`在`str`最后出现的位置
-
-返回
-- 当`str`里没有`flag`时,返回`nil`
-
 <div id="setElements"/>
 
 原型：`nil zy.setElements(table items,mixed value,string key="value",bool inc=false)`
@@ -223,16 +211,6 @@ E.g.
 
 返回
 - 转义后的字符串
-
-----
-
-<div id="getDir"/>
-
-原型：`string zy.getDir(string file=nil)`
-
-介绍
-- 获取文件的绝对路径
-- 如果没有传参数,默认`gg.getFile()`
 
 ----
 
