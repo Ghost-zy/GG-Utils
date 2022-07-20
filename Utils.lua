@@ -185,21 +185,6 @@ function zy.offset(item,offset)
 	return item.value
 end
 
-function zy.findLast(str,flag)
-	local index=string.find(str,flag)
-	if not index then
-		return nil
-	end
-	
-	while true do
-		local i=string.find(str,flag,index+1)
-		if not i then
-			return index
-		else
-			index=i
-		end
-	end
-end
 
 function zy.escape(raw)
 	raw=string.gsub(raw,"%%","%%%%")
@@ -214,13 +199,6 @@ function zy.escape(raw)
 	--raw=string.gsub(raw,"%\*","%%\*")
 	--raw=string.gsub(raw,"%\[","%%\[")
 	return raw
-end
-
-function zy.getDir(file)
-	if type(file)~="string"then
-		file=gg.getFile()
-	end
-	return string.sub(file,1,zy.findLast(file,"/"))
 end
 
 function zy.getSegments(exp)
