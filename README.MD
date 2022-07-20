@@ -9,6 +9,9 @@
 ![visitors​​](https://visitor-badge.glitch.me/badge?page_id=Ghost-zy.GG-Utils&left_color=green&right_color=red)
 ## 历史更新
 
+### 4.0.0
+- 移除了`zy.getDir`和`zy.findLast`函数
+
 ### 3.1.1
 - 修复`zy.gotoAddress`读取指针链永远为0
 
