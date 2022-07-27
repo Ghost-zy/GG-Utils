@@ -215,36 +215,25 @@ function zy.getSegments(exp)
 end
 
 function zy.gotoAddress(segment,...)
-	local x64=gg.getTargetInfo().x64
 	segment=zy.getSegments(segment)
-	local i=
-	{
-		[true]=gg.TYPE_QWORD,
-		[false]=gg.TYPE_DWORD
-	}
 	if#segment<=0 then
 		return 0
 	end
 	segment=segment[1]
-	segment=
-	{
-		address=segment.start,
-		flags=i[x64]
-	}
-	i=1
-	while i<select("#",...)do
-		segment.address=segment.address+select(i,...)
+	segment={address=segment.start+select(1,...)}
+	if gg.getTargetInfo().x64 then
+		segment.flags=gg.TYPE_QWORD
+	else
+		segment.flags=gg.TYPE_DWORD
+	end
+	for i=2,select("#",...) do
 		segment=gg.getValues({segment})[1]
 		if segment.value==0 then
 			return 0
 		end
-		if not x64 then
-			segment.value=segment.value&0xFFFFFFFF
-		end
-		segment.address=segment.value
-		i=i+1
+		segment.address=segment.value+select(i,...)
 	end
-	return segment.value+select(i,...)
+	return segment.address
 end
 
 return zy
